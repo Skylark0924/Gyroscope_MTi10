@@ -8,3 +8,13 @@ E:\VSwork\XsensPC1\XsensPC1\obj\Release\XsensPC1.csproj.CoreCompileInputs.cache
 E:\VSwork\XsensPC1\XsensPC1\obj\Release\XsensPC1.exe
 E:\VSwork\XsensPC1\XsensPC1\obj\Release\XsensPC1.pdb
 E:\VSwork\XsensPC1\XsensPC1\obj\Release\XsensPC1.csprojAssemblyReference.cache
+D:\Document_x64\Documents\GitHub\Gyroscope_MTi10\XsensPC1\bin\Release\XsensPC1.exe.config
+D:\Document_x64\Documents\GitHub\Gyroscope_MTi10\XsensPC1\bin\Release\XsensPC1.exe
+D:\Document_x64\Documents\GitHub\Gyroscope_MTi10\XsensPC1\bin\Release\XsensPC1.pdb
+D:\Document_x64\Documents\GitHub\Gyroscope_MTi10\XsensPC1\obj\Release\XsensPC1.csprojAssemblyReference.cache
+D:\Document_x64\Documents\GitHub\Gyroscope_MTi10\XsensPC1\obj\Release\XsensPC1.Form1.resources
+D:\Document_x64\Documents\GitHub\Gyroscope_MTi10\XsensPC1\obj\Release\XsensPC1.Properties.Resources.resources
+D:\Document_x64\Documents\GitHub\Gyroscope_MTi10\XsensPC1\obj\Release\XsensPC1.csproj.GenerateResource.cache
+D:\Document_x64\Documents\GitHub\Gyroscope_MTi10\XsensPC1\obj\Release\XsensPC1.csproj.CoreCompileInputs.cache
+D:\Document_x64\Documents\GitHub\Gyroscope_MTi10\XsensPC1\obj\Release\XsensPC1.exe
+D:\Document_x64\Documents\GitHub\Gyroscope_MTi10\XsensPC1\obj\Release\XsensPC1.pdb
