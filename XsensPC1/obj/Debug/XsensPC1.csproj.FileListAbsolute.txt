@@ -18,3 +18,7 @@ D:\Document_x64\Documents\GitHub\Gyroscope_MTi10\XsensPC1\obj\Debug\XsensPC1.csp
 D:\Document_x64\Documents\GitHub\Gyroscope_MTi10\XsensPC1\obj\Debug\XsensPC1.csproj.CoreCompileInputs.cache
 D:\Document_x64\Documents\GitHub\Gyroscope_MTi10\XsensPC1\obj\Debug\XsensPC1.exe
 D:\Document_x64\Documents\GitHub\Gyroscope_MTi10\XsensPC1\obj\Debug\XsensPC1.pdb
+D:\Document_x64\Documents\GitHub\Gyroscope_MTi10\XsensPC1\bin\Debug\Microsoft.Office.Interop.Excel.dll
+D:\Document_x64\Documents\GitHub\Gyroscope_MTi10\XsensPC1\bin\Debug\office.dll
+D:\Document_x64\Documents\GitHub\Gyroscope_MTi10\XsensPC1\bin\Debug\stdole.dll
+D:\Document_x64\Documents\GitHub\Gyroscope_MTi10\XsensPC1\obj\Debug\XsensPC1.csproj.CopyComplete
