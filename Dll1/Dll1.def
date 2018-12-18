@@ -1,0 +1,9 @@
+LIBRARY "Dll1"
+
+EXPORTS
+
+OpenCOMDevice @ 1
+mygetdata @ 2
+mygetCaldata @ 3
+mygetEulerdata @ 4
+CloseCOMDevice @ 5

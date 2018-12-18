@@ -1,0 +1,10 @@
+E:\VSwork\XsensPC1\XsensPC1\bin\Release\XsensPC1.exe.config
+E:\VSwork\XsensPC1\XsensPC1\bin\Release\XsensPC1.exe
+E:\VSwork\XsensPC1\XsensPC1\bin\Release\XsensPC1.pdb
+E:\VSwork\XsensPC1\XsensPC1\obj\Release\XsensPC1.Form1.resources
+E:\VSwork\XsensPC1\XsensPC1\obj\Release\XsensPC1.Properties.Resources.resources
+E:\VSwork\XsensPC1\XsensPC1\obj\Release\XsensPC1.csproj.GenerateResource.cache
+E:\VSwork\XsensPC1\XsensPC1\obj\Release\XsensPC1.csproj.CoreCompileInputs.cache
+E:\VSwork\XsensPC1\XsensPC1\obj\Release\XsensPC1.exe
+E:\VSwork\XsensPC1\XsensPC1\obj\Release\XsensPC1.pdb
+E:\VSwork\XsensPC1\XsensPC1\obj\Release\XsensPC1.csprojAssemblyReference.cache
