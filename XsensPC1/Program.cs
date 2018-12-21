@@ -69,7 +69,7 @@ namespace XsensPC1
         {
             int nMax = 9;
             int nMin = 4;
-            int rowCount = 100;//总行数
+            int rowCount = 1001;//总行数
 
             const int columnCount = 6;//总列数
 
@@ -154,7 +154,8 @@ namespace XsensPC1
 
             }
             int k = 2;
-            while (k < rowCount)
+            //bool end = true;
+            while (k<rowCount)
             {
                 pointer = mygetdata();
                 Marshal.Copy(pointer, mydata, 0, 6);
