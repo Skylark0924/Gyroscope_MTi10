@@ -22,3 +22,17 @@ D:\Document_x64\Documents\GitHub\Gyroscope_MTi10\XsensPC1\bin\Debug\Microsoft.Of
 D:\Document_x64\Documents\GitHub\Gyroscope_MTi10\XsensPC1\bin\Debug\office.dll
 D:\Document_x64\Documents\GitHub\Gyroscope_MTi10\XsensPC1\bin\Debug\stdole.dll
 D:\Document_x64\Documents\GitHub\Gyroscope_MTi10\XsensPC1\obj\Debug\XsensPC1.csproj.CopyComplete
+E:\Github\Gyroscope_MTi10\XsensPC1\bin\Debug\XsensPC1.exe.config
+E:\Github\Gyroscope_MTi10\XsensPC1\bin\Debug\XsensPC1.exe
+E:\Github\Gyroscope_MTi10\XsensPC1\bin\Debug\XsensPC1.pdb
+E:\Github\Gyroscope_MTi10\XsensPC1\bin\Debug\Microsoft.Office.Interop.Excel.dll
+E:\Github\Gyroscope_MTi10\XsensPC1\bin\Debug\office.dll
+E:\Github\Gyroscope_MTi10\XsensPC1\bin\Debug\stdole.dll
+E:\Github\Gyroscope_MTi10\XsensPC1\obj\Debug\XsensPC1.csprojAssemblyReference.cache
+E:\Github\Gyroscope_MTi10\XsensPC1\obj\Debug\XsensPC1.Form1.resources
+E:\Github\Gyroscope_MTi10\XsensPC1\obj\Debug\XsensPC1.Properties.Resources.resources
+E:\Github\Gyroscope_MTi10\XsensPC1\obj\Debug\XsensPC1.csproj.GenerateResource.cache
+E:\Github\Gyroscope_MTi10\XsensPC1\obj\Debug\XsensPC1.csproj.CoreCompileInputs.cache
+E:\Github\Gyroscope_MTi10\XsensPC1\obj\Debug\XsensPC1.csproj.CopyComplete
+E:\Github\Gyroscope_MTi10\XsensPC1\obj\Debug\XsensPC1.exe
+E:\Github\Gyroscope_MTi10\XsensPC1\obj\Debug\XsensPC1.pdb
