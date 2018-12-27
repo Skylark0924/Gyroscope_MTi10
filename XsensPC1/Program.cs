@@ -7,6 +7,7 @@ using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading;
 using System.Reflection;
+using System.Timers;
 using Excel = Microsoft.Office.Interop.Excel;
 using Microsoft;
 
@@ -32,6 +33,8 @@ namespace XsensPC1
         public static extern void CloseCOMDevice();
 
         public static byte cResult = 1;
+        public static Excel.Application excelApp;
+        public static int k = 2;
 
         /// <summary>
         /// 应用程序的主入口点。
@@ -41,14 +44,23 @@ namespace XsensPC1
         {
 
             cResult = OpenCOMDevice();
-            if (cResult == 0)
+            if (cResult == 0 && k<1000)
             {
                 Thread thread = new Thread(ToExcel);//创建一个线程
                 thread.Start();//开始一个线程
+                System.Timers.Timer t = new System.Timers.Timer(10);//实例化Timer类，设置间隔时间为10000毫秒；
+                
+                t.Elapsed += new System.Timers.ElapsedEventHandler(loop);//到达时间的时候执行事件；
+                t.AutoReset = true;//设置是执行一次（false）还是一直执行(true)；
+                t.Enabled = true;//是否执行System.Timers.Timer.Elapsed事件；
             }
-
-
+            if (k==1000)
+            {
+                //设置Excel可见
+                excelApp.Visible = true;
+            }
         }
+
         //static void Print()
         //{
         //    IntPtr pointer = new IntPtr();
@@ -73,8 +85,7 @@ namespace XsensPC1
 
             const int columnCount = 6;//总列数
 
-            IntPtr pointer = new IntPtr();
-            float[] mydata = { 0, 0, 0, 0, 0, 0 };
+
             //创建Excel对象
             Excel.Application excelApp = new Excel.ApplicationClass();
             //新建工作簿
@@ -82,26 +93,6 @@ namespace XsensPC1
             //新建工作表
             Excel.Worksheet worksheet = workBook.ActiveSheet as Excel.Worksheet;
             ////设置标题
-
-            //Excel.Range titleRange = worksheet.get_Range(worksheet.Cells[1, 1], worksheet.Cells[1, columnCount]);//选取单元格
-
-            //titleRange.Merge(true);//合并单元格
-
-            //titleRange.Value2 = strTitle; //设置单元格内文本
-
-            //titleRange.Font.Name = "宋体";//设置字体
-
-            //titleRange.Font.Size = 18;//字体大小
-
-            //titleRange.Font.Bold = false;//加粗显示
-
-            //titleRange.HorizontalAlignment = Excel.XlHAlign.xlHAlignCenter;//水平居中
-
-            //titleRange.VerticalAlignment = Excel.XlVAlign.xlVAlignCenter;//垂直居中
-
-            //titleRange.Borders.LineStyle = Excel.XlLineStyle.xlContinuous;//设置边框
-
-            //titleRange.Borders.Weight = Excel.XlBorderWeight.xlThin;//边框常规粗细
 
             //设置表头
             string[] strHead = new string[columnCount] { "Acc_x", "Acc_y", "Acc_z", "euler1", "euler2", "euler3" };
@@ -153,28 +144,52 @@ namespace XsensPC1
                 contentRange.NumberFormatLocal = "@";//文本格式
 
             }
-            int k = 2;
+            
             //bool end = true;
-            while (k<rowCount)
-            {
-                pointer = mygetdata();
-                Marshal.Copy(pointer, mydata, 0, 6);
-                //填充数据
-                    excelApp.Cells[k, 1] =  mydata[0];
 
-                    excelApp.Cells[k, 2] = mydata[1];
 
-                    excelApp.Cells[k, 3] = mydata[2];
+            //while (k<rowCount)
+            //{
+            //    pointer = mygetdata();
+            //    Marshal.Copy(pointer, mydata, 0, 6);
+            //    //填充数据
+            //        excelApp.Cells[k, 1] =  mydata[0];
 
-                    excelApp.Cells[k, 4] = mydata[3];
+            //        excelApp.Cells[k, 2] = mydata[1];
 
-                    excelApp.Cells[k, 5] = mydata[4];
+            //        excelApp.Cells[k, 3] = mydata[2];
 
-                    excelApp.Cells[k, 6] = mydata[5];
-                k++;
-            }
-            //设置Excel可见
-            excelApp.Visible = true;
+            //        excelApp.Cells[k, 4] = mydata[3];
+
+            //        excelApp.Cells[k, 5] = mydata[4];
+
+            //        excelApp.Cells[k, 6] = mydata[5];
+            //    k++;
+            //}
+
+        }
+
+        public static void loop(object source, ElapsedEventArgs e)
+        {
+            IntPtr pointer = new IntPtr();
+            float[] mydata = { 0, 0, 0, 0, 0, 0 };
+            pointer = mygetdata();
+            Marshal.Copy(pointer, mydata, 0, 6);
+            
+            //填充数据
+            excelApp.Cells[k, 1] = mydata[0];
+
+            excelApp.Cells[k, 2] = mydata[1];
+
+            excelApp.Cells[k, 3] = mydata[2];
+
+            excelApp.Cells[k, 4] = mydata[3];
+
+            excelApp.Cells[k, 5] = mydata[4];
+
+            excelApp.Cells[k, 6] = mydata[5];
+
+            k++;
         }
     }
 }
