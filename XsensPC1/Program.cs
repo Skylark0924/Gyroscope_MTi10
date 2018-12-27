@@ -33,8 +33,11 @@ namespace XsensPC1
         public static extern void CloseCOMDevice();
 
         public static byte cResult = 1;
-        public static Excel.Application excelApp;
+        public static Excel.Application excelApp= new Excel.ApplicationClass();
         public static int k = 2;
+
+        public static IntPtr pointer = new IntPtr();
+        public static float[] mydata = { 0, 0, 0, 0, 0, 0 };
 
         /// <summary>
         /// 应用程序的主入口点。
@@ -48,17 +51,16 @@ namespace XsensPC1
             {
                 Thread thread = new Thread(ToExcel);//创建一个线程
                 thread.Start();//开始一个线程
-                System.Timers.Timer t = new System.Timers.Timer(10);//实例化Timer类，设置间隔时间为10000毫秒；
-                
-                t.Elapsed += new System.Timers.ElapsedEventHandler(loop);//到达时间的时候执行事件；
+                System.Timers.Timer t = new System.Timers.Timer();//实例化Timer类，设置间隔时间为10毫秒；
+                t.Elapsed += new System.Timers.ElapsedEventHandler(myloop);//到达时间的时候执行事件；
                 t.AutoReset = true;//设置是执行一次（false）还是一直执行(true)；
+                t.Interval = 10;
+                //t.Start();
                 t.Enabled = true;//是否执行System.Timers.Timer.Elapsed事件；
-            }
-            if (k==1000)
-            {
                 //设置Excel可见
-                excelApp.Visible = true;
+                
             }
+            excelApp.Visible = true;
         }
 
         //static void Print()
@@ -81,13 +83,11 @@ namespace XsensPC1
         {
             int nMax = 9;
             int nMin = 4;
-            int rowCount = 1001;//总行数
-
+            int rowCount = 101;//总行数
             const int columnCount = 6;//总列数
 
-
             //创建Excel对象
-            Excel.Application excelApp = new Excel.ApplicationClass();
+            //Excel.Application excelApp = new Excel.ApplicationClass();
             //新建工作簿
             Excel.Workbook workBook = excelApp.Workbooks.Add(true);
             //新建工作表
@@ -144,38 +144,37 @@ namespace XsensPC1
                 contentRange.NumberFormatLocal = "@";//文本格式
 
             }
-            
-            //bool end = true;
 
-
-            //while (k<rowCount)
+            //while (k < rowCount)
             //{
             //    pointer = mygetdata();
             //    Marshal.Copy(pointer, mydata, 0, 6);
             //    //填充数据
-            //        excelApp.Cells[k, 1] =  mydata[0];
+            //    excelApp.Cells[k, 1] = mydata[0];
 
-            //        excelApp.Cells[k, 2] = mydata[1];
+            //    excelApp.Cells[k, 2] = mydata[1];
 
-            //        excelApp.Cells[k, 3] = mydata[2];
+            //    excelApp.Cells[k, 3] = mydata[2];
 
-            //        excelApp.Cells[k, 4] = mydata[3];
+            //    excelApp.Cells[k, 4] = mydata[3];
 
-            //        excelApp.Cells[k, 5] = mydata[4];
+            //    excelApp.Cells[k, 5] = mydata[4];
 
-            //        excelApp.Cells[k, 6] = mydata[5];
+            //    excelApp.Cells[k, 6] = mydata[5];
             //    k++;
+            //    Console.WriteLine(k);
+            //    Thread.Sleep(10);
             //}
+
 
         }
 
-        public static void loop(object source, ElapsedEventArgs e)
+
+        public static void myloop(object Cells, System.Timers.ElapsedEventArgs e)
         {
-            IntPtr pointer = new IntPtr();
-            float[] mydata = { 0, 0, 0, 0, 0, 0 };
+            Console.WriteLine(k);
             pointer = mygetdata();
             Marshal.Copy(pointer, mydata, 0, 6);
-            
             //填充数据
             excelApp.Cells[k, 1] = mydata[0];
 
@@ -190,6 +189,7 @@ namespace XsensPC1
             excelApp.Cells[k, 6] = mydata[5];
 
             k++;
+
         }
     }
 }
