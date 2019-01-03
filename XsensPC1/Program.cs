@@ -40,7 +40,8 @@ namespace XsensPC1
         public static float[] mydata = { 0, 0, 0, 0, 0, 0 };
 
         public static System.Timers.Timer t = new System.Timers.Timer(100);//实例化Timer类，设置间隔时间为10毫秒；
-        
+        public static int rowCount = 101;//总行数
+
 
         /// <summary>
         /// 应用程序的主入口点。
@@ -54,7 +55,8 @@ namespace XsensPC1
             {
                 Thread thread = new Thread(ToExcel);//创建一个线程
                 thread.Start();//开始一个线程
-            }  
+            }
+            excelApp.Visible = true;
         }
 
         //static void Print()
@@ -75,7 +77,7 @@ namespace XsensPC1
         //}
         static public void ToExcel()
         {
-            int rowCount = 101;//总行数
+
             const int columnCount = 6;//总列数
 
             //创建Excel对象
@@ -142,17 +144,16 @@ namespace XsensPC1
             //t.Start();
             t.Enabled = true;//是否执行System.Timers.Timer.Elapsed事件；
 
-            //while (k<=rowCount)
-            //{
-            //    Console.WriteLine("test_" + Thread.CurrentThread.ManagedThreadId.ToString());
-            //    Thread.Sleep(100);
-            //}
+            while (k <= rowCount)
+            {
+                Console.WriteLine("test_" + Thread.CurrentThread.ManagedThreadId.ToString());
+                Thread.Sleep(100);
+            }
         }
 
 
         public static void myloop(object source, System.Timers.ElapsedEventArgs e)
         {
-
             Console.WriteLine(k);
             pointer = mygetdata();
             Marshal.Copy(pointer, mydata, 0, 6);
@@ -170,13 +171,14 @@ namespace XsensPC1
             excelApp.Cells[k, 6] = mydata[5];
 
             k++;
-
-            if (k == 101)
+            if (k == rowCount)
             {
+                t.Stop();
                 //设置Excel可见
-                excelApp.Visible = true;
                 t.Enabled = false;
+                t.Close();
             }
         }
+
     }
 }
