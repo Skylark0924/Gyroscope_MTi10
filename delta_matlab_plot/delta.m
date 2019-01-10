@@ -1,11 +1,10 @@
-
 % data2=xlsread('data_3err_RULDRM'); % 错误数据
-Acc_x_normal=data1101(1:1000,2);
-Acc_y_normal=data1101(1:1000,3);
-Acc_z_normal=data1101(1:1000,4);
-% Acc_x_error=data2(97:296,1);  % 只需要改区间即可
-% Acc_y_error=data2(97:296,2);
-% Acc_z_error=data2(97:296,3);
+Acc_x_normal=data_normal(1:1000,1);
+Acc_y_normal=data_normal(1:1000,2);
+Acc_z_normal=data_normal(1:1000,3);
+Acc_x_error=data_LD_RC_LU(1:1000,1);  % 只需要改区间即可
+Acc_y_error=data_LD_RC_LU(1:1000,2);
+Acc_z_error=data_LD_RC_LU(1:1000,3);
 t=1:1000; % 选取200点
 %% 正常数据与故障数据分图对比
 figure
@@ -26,21 +25,21 @@ title('Accz normal')
 xlabel('t');
 ylabel('Accz');
 
-% subplot(3,2,2)
-% plot(t,Acc_x_error);
-% title('Accx error')
-% xlabel('t');
-% ylabel('Accx');
-% subplot(3,2,4)
-% plot(t,Acc_y_error);
-% title('Accy error')
-% xlabel('t');
-% ylabel('Accy');
-% subplot(3,2,6)
-% plot(t,Acc_z_error);
-% title('Accz error')
-% xlabel('t');
-% ylabel('Accz');
+subplot(3,2,2)
+plot(t,Acc_x_error);
+title('Accx error')
+xlabel('t');
+ylabel('Accx');
+subplot(3,2,4)
+plot(t,Acc_y_error);
+title('Accy error')
+xlabel('t');
+ylabel('Accy');
+subplot(3,2,6)
+plot(t,Acc_z_error);
+title('Accz error')
+xlabel('t');
+ylabel('Accz');
 
 %% 正常数据和故障数据同图对比
 % figure 
