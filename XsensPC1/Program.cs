@@ -39,7 +39,7 @@ namespace XsensPC1
         public static IntPtr pointer = new IntPtr();
         public static float[] mydata = { 0, 0, 0, 0, 0, 0 };
 
-        public static System.Timers.Timer t = new System.Timers.Timer(100);//实例化Timer类，设置间隔时间为10毫秒；
+        public static System.Timers.Timer t = new System.Timers.Timer(50);//实例化Timer类，设置间隔时间为10毫秒；
         public static int rowCount = 101;//总行数
 
 
@@ -55,8 +55,7 @@ namespace XsensPC1
             {
                 Thread thread = new Thread(ToExcel);//创建一个线程
                 thread.Start();//开始一个线程
-            }
-            excelApp.Visible = true;
+            } 
         }
 
         //static void Print()
@@ -147,37 +146,40 @@ namespace XsensPC1
             while (k <= rowCount)
             {
                 Console.WriteLine("test_" + Thread.CurrentThread.ManagedThreadId.ToString());
-                Thread.Sleep(100);
+                Thread.Sleep(50);
             }
+               
+            
         }
 
 
         public static void myloop(object source, System.Timers.ElapsedEventArgs e)
         {
-            Console.WriteLine(k);
+            //Console.WriteLine(k);
             pointer = mygetdata();
             Marshal.Copy(pointer, mydata, 0, 6);
             //填充数据
-            excelApp.Cells[k, 1] = mydata[0];
+            excelApp.Cells[k, 1] = mydata[3];
 
-            excelApp.Cells[k, 2] = mydata[1];
+            excelApp.Cells[k, 2] = mydata[4];
 
-            excelApp.Cells[k, 3] = mydata[2];
+            excelApp.Cells[k, 3] = mydata[5];
 
-            excelApp.Cells[k, 4] = mydata[3];
+            excelApp.Cells[k, 4] = mydata[0];
 
-            excelApp.Cells[k, 5] = mydata[4];
+            excelApp.Cells[k, 5] = mydata[1];
 
-            excelApp.Cells[k, 6] = mydata[5];
-
-            k++;
-            if (k == rowCount)
+            excelApp.Cells[k, 6] = mydata[2];
+            
+            if (k >= rowCount)
             {
                 t.Stop();
                 //设置Excel可见
                 t.Enabled = false;
                 t.Close();
+                excelApp.Visible = true;
             }
+            k++;
         }
 
     }
